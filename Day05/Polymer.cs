@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
 
 namespace Day05
 {
@@ -14,7 +10,10 @@ namespace Day05
         {
             var input = ReadInputFile();
             var result = Part1(input);
-            Console.WriteLine($"Part1: {result}");
+            Console.WriteLine($"Part 1: {result}");
+
+            result = Part2(input);
+            Console.WriteLine($"Part 2: {result}");
         }
 
         public static int Part1(string input)
@@ -24,11 +23,11 @@ namespace Day05
                 var done = true;
                 for (var i = 0; i < input.Length - 1;)
                 {
-                    // compare two parts
-                    var one = (int)input[i];
-                    var two = (int)input[i + 1];
-                    var diff = Math.Abs(one - two);
-                    if (diff == 32)
+                    var a = (int)input[i];
+                    var b = (int)input[i + 1];
+
+                    // check distance between ASCII characters
+                    if (Math.Abs(a - b) == 32)
                     {
                         input = input.Remove(i, 2);
                         done = false;
@@ -49,35 +48,18 @@ namespace Day05
 
         public static int Part2(string input)
         {
-            var start = 65;
-            var end = 90;
-
-            return 0;
+            var shortest = int.MaxValue;
+            for (var i = 65; i < 97; i++)
+            {
+                var currentInput = input.Replace(char.ConvertFromUtf32(i), string.Empty).Replace(char.ConvertFromUtf32(i + 32), string.Empty);
+                shortest = Math.Min(Part1(currentInput), shortest);
+            }
+            return shortest;
         }
 
         private static string ReadInputFile()
         {
             return File.ReadAllLines("Input.txt").ToList()[0];
-        }
-    }
-
-    [TestFixture]
-    public class PolymerTests
-    {
-        private const string TestInput = "dabAcCaCBAcCcaDA";
-        
-        [Test]
-        public void Part1()
-        {
-            var result = Polymer.Part1(TestInput);
-            Assert.That(result.Equals("dabCBAcaDA"));
-        }
-
-        [Test]
-        public void Part2()
-        {
-            var result = Polymer.Part2(TestInput);
-            Assert.That(result == 4);
         }
     }
 }
