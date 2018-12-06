@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -14,6 +15,11 @@ namespace Day05
 
             result = Part2(input);
             Console.WriteLine($"Part 2: {result}");
+
+            var result2 = StartB(input);
+            Console.WriteLine($"Part B: {result}");
+
+            Console.WriteLine($"Match: {result.Equals(result2)}");
         }
 
         public static int Part1(string input)
@@ -55,6 +61,18 @@ namespace Day05
                 shortest = Math.Min(Part1(currentInput), shortest);
             }
             return shortest;
+        }
+
+        public static int StartB(string input)
+        {
+            var solutions = new List<int>();
+            for (var iChar = 'a'; iChar <= 'z'; ++iChar)
+            {
+                var newPolymer = string.Concat(input.Where(c => c != iChar && c != char.ToUpper(iChar)));
+                solutions.Add(Part1(newPolymer));
+            }
+
+            return solutions.Min();
         }
 
         private static string ReadInputFile()

@@ -20,5 +20,12 @@ namespace Day05
             var result = Polymer.Part2(TestInput);
             Assert.That(result == 4);
         }
+
+        [Test]
+        public void PartB()
+        {
+            var result = Polymer.StartB(TestInput);
+            Assert.That(result == 4);
+        }
     }
 }
