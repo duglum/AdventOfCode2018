@@ -20,6 +20,7 @@ namespace Day06
         {
             var (result1, result2) = Coordinates.Solution(_input);
             Assert.That(result1 == 17);
+            Assert.That(result2 == 90);
         }
     }
 }
