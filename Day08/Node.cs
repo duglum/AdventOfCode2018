@@ -37,7 +37,7 @@ namespace Day08
                 sum += node.GetSumMetaDataEntries();
             }
 
-            sum += MetaData.Sum(m => m);
+            sum += MetaData.Sum();
 
             return sum;
         }
@@ -46,7 +46,7 @@ namespace Day08
         {
             if (ChildNodes.Count == 0)
             {
-                return MetaData.Sum(m => m);
+                return MetaData.Sum();
             }
 
             var value = 0;
