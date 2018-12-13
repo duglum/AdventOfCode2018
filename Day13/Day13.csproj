@@ -6,10 +6,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4DF5409A-DEEB-41EE-8583-4816E5A6B7CF}</ProjectGuid>
+    <ProjectGuid>{BCBAD8BA-F860-40DA-925A-0578F6A2A8CE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Day07</RootNamespace>
-    <AssemblyName>Day07</AssemblyName>
+    <RootNamespace>Day13</RootNamespace>
+    <AssemblyName>Day13</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Order.cs" />
-    <Compile Include="OrderTests.cs" />
+    <Compile Include="Cart.cs" />
+    <Compile Include="CartStatus.cs" />
+    <Compile Include="MineCarts.cs" />
+    <Compile Include="MineCartsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InputTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InputTest2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

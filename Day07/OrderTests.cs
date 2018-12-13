@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using FluentAssertions;
 
 namespace Day07
 {
@@ -21,14 +22,15 @@ namespace Day07
         public void Part1()
         {
             var result = Order.Part1(_testInput);
-            Assert.That(result == "CABDFE");
+            result.Should().Be("CABDFE");
         }
 
         [Test]
         public void Part2()
         {
+            // adjusted to 5 workers, with 2 workers it would be 15
             var result = Order.Part2(_testInput);
-            Assert.That(result == 15);
+            result.Should().Be(253);
         }
     }
 }
