@@ -43,11 +43,14 @@ namespace Day13
             while (carts.Count > 1)
             {
                 carts = carts.OrderBy(c => c.PositionY).ThenBy(c => c.PositionX).ToList();
-                foreach (var cart in carts)
+                for (var i = 0; i < carts.Count; i++)
                 {
-                    cart.Tick(map, carts);
+                    carts[i].Tick(map, carts);
+
+                    // Important: Remove all carts immediately, otherwise there might be multiple crashes
+                    // at the same location
+                    carts.RemoveAll(c => c.Status == CartStatus.Crashed);
                 }
-                carts = carts.Where(c => c.Status != CartStatus.Crashed).ToList();
                 //PrintMap(map, carts);
             }
 

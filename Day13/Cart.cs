@@ -100,7 +100,7 @@ namespace Day13
                 cart.Status = CartStatus.Crashed;
             }
 
-            // if there are crashed carts on out position, we're gone as well
+            // if there are crashed carts on our position, we're gone as well
             if (crashingCarts.Count > 0)
             {
                 Status = CartStatus.Crashed;
