@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChocolateCharts.cs" />
+    <Compile Include="ChocolateChartsTests.cs" />
+    <Compile Include="CircularLinkedListExtension.cs" />
+    <Compile Include="Elf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
